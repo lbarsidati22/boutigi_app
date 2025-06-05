@@ -1,3 +1,4 @@
+import 'package:boutigi_app/core/routes/app_routes.dart';
 import 'package:boutigi_app/features/splash/presintasion/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,10 @@ class BoutigiApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashView());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: onGenerateRoute,
+      initialRoute: SplashView.routeName,
+    );
   }
 }
