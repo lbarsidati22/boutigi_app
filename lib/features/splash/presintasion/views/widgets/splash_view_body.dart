@@ -1,9 +1,22 @@
 import 'package:boutigi_app/core/utils/app_images.dart';
+import 'package:boutigi_app/features/on_bording/presintasion/views/on_bording_view.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 
-class SplashViewBody extends StatelessWidget {
+class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
+
+  @override
+  State<SplashViewBody> createState() => _SplashViewBodyState();
+}
+
+class _SplashViewBodyState extends State<SplashViewBody> {
+  @override
+  void initState() {
+    excuteNavigation();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,5 +29,11 @@ class SplashViewBody extends StatelessWidget {
         SvgPicture.asset(Assets.imagesSplashBottom, fit: BoxFit.fill),
       ],
     );
+  }
+
+  void excuteNavigation() {
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, OnBordingView.routeName);
+    });
   }
 }
