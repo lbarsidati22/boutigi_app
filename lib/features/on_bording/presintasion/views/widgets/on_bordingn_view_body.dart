@@ -1,4 +1,5 @@
 import 'package:boutigi_app/constants.dart';
+import 'package:boutigi_app/core/services/shared_pfer_singilton.dart';
 import 'package:boutigi_app/core/utils/app_colors.dart';
 import 'package:boutigi_app/core/widgets/main_bottom.dart';
 import 'package:boutigi_app/features/auth/presintasion/views/login_view.dart';
@@ -76,6 +77,10 @@ class _OnBordingnViewBodyState
                 ),
             child: MainBottom(
               onTap: () {
+                SharedPferSingilton.setBool(
+                  isOnBordingSeen,
+                  true,
+                );
                 Navigator.pushReplacementNamed(
                   context,
                   LoginView.routeName,

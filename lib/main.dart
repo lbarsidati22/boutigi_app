@@ -1,10 +1,13 @@
 import 'package:boutigi_app/core/routes/app_routes.dart';
+import 'package:boutigi_app/core/services/shared_pfer_singilton.dart';
 import 'package:boutigi_app/features/splash/presintasion/views/splash_view.dart';
 import 'package:boutigi_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPferSingilton.init();
   runApp(const BoutigiApp());
 }
 
