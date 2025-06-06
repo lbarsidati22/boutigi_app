@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:svg_flutter/svg.dart';
 
-class PageViewItem extends StatelessWidget {
+class PageViewItem
+    extends StatelessWidget {
   const PageViewItem({
     super.key,
     required this.image,
@@ -20,7 +21,11 @@ class PageViewItem extends StatelessWidget {
       children: [
         SizedBox(
           width: double.infinity,
-          height: MediaQuery.sizeOf(context).height * 0.5,
+          height:
+              MediaQuery.sizeOf(
+                context,
+              ).height *
+              0.5,
           child: Stack(
             children: [
               Positioned.fill(
@@ -34,9 +39,16 @@ class PageViewItem extends StatelessWidget {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                child: SvgPicture.asset(image),
+                child: SvgPicture.asset(
+                  image,
+                ),
               ),
-              Padding(padding: EdgeInsets.all(16), child: Text('تخط')),
+              Padding(
+                padding: EdgeInsets.all(
+                  16,
+                ),
+                child: Text('تخط'),
+              ),
             ],
           ),
         ),
@@ -44,8 +56,13 @@ class PageViewItem extends StatelessWidget {
         title,
         SizedBox(height: 24),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: Text(subtitle, textAlign: TextAlign.center),
+          padding: EdgeInsets.symmetric(
+            horizontal: 16,
+          ),
+          child: Text(
+            subtitle,
+            textAlign: TextAlign.center,
+          ),
         ),
       ],
     );
