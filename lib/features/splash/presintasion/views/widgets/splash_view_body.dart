@@ -1,16 +1,22 @@
+import 'package:boutigi_app/constants.dart';
+import 'package:boutigi_app/core/services/shared_pfer_singilton.dart';
 import 'package:boutigi_app/core/utils/app_images.dart';
+import 'package:boutigi_app/features/auth/presintasion/views/login_view.dart';
 import 'package:boutigi_app/features/on_bording/presintasion/views/on_bording_view.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
 
-class SplashViewBody extends StatefulWidget {
+class SplashViewBody
+    extends StatefulWidget {
   const SplashViewBody({super.key});
 
   @override
-  State<SplashViewBody> createState() => _SplashViewBodyState();
+  State<SplashViewBody> createState() =>
+      _SplashViewBodyState();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody> {
+class _SplashViewBodyState
+    extends State<SplashViewBody> {
   @override
   void initState() {
     excuteNavigation();
@@ -21,22 +27,52 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment:
+          CrossAxisAlignment.stretch,
+      mainAxisAlignment:
+          MainAxisAlignment
+              .spaceBetween,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [SvgPicture.asset(Assets.imagesPlant)],
+          mainAxisAlignment:
+              MainAxisAlignment.end,
+          children: [
+            SvgPicture.asset(
+              Assets.imagesPlant,
+            ),
+          ],
         ),
-        SvgPicture.asset(Assets.imagesLogo),
-        SvgPicture.asset(Assets.imagesSplashBottom, fit: BoxFit.fill),
+        SvgPicture.asset(
+          Assets.imagesLogo,
+        ),
+        SvgPicture.asset(
+          Assets.imagesSplashBottom,
+          fit: BoxFit.fill,
+        ),
       ],
     );
   }
 
   void excuteNavigation() {
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, OnBordingView.routeName);
-    });
+    bool isOnBordingeen =
+        SharedPferSingilton.getBool(
+          isOnBordingSeen,
+        );
+    Future.delayed(
+      Duration(seconds: 3),
+      () {
+        if (isOnBordingeen) {
+          Navigator.pushReplacementNamed(
+            context,
+            LoginView.routeName,
+          );
+        } else {
+          Navigator.pushReplacementNamed(
+            context,
+            OnBordingView.routeName,
+          );
+        }
+      },
+    );
   }
 }

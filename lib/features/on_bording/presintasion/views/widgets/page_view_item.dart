@@ -1,3 +1,5 @@
+import 'package:boutigi_app/constants.dart';
+import 'package:boutigi_app/core/services/shared_pfer_singilton.dart';
 import 'package:boutigi_app/core/utils/animate_do.dart';
 import 'package:boutigi_app/core/utils/app_text_styles.dart';
 import 'package:boutigi_app/features/auth/presintasion/views/login_view.dart';
@@ -55,6 +57,10 @@ class PageViewItem
                 visible: isVasibel,
                 child: GestureDetector(
                   onTap: () {
+                    SharedPferSingilton.setBool(
+                      isOnBordingSeen,
+                      true,
+                    );
                     Navigator.pushReplacementNamed(
                       context,
                       LoginView
