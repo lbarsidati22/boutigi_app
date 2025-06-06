@@ -8,24 +8,35 @@ void main() {
   runApp(const BoutigiApp());
 }
 
-class BoutigiApp extends StatelessWidget {
+class BoutigiApp
+    extends StatelessWidget {
   const BoutigiApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Cairo',
+        scaffoldBackgroundColor:
+            Colors.white,
+      ),
       localizationsDelegates: [
         S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
+        GlobalMaterialLocalizations
+            .delegate,
+        GlobalWidgetsLocalizations
+            .delegate,
+        GlobalCupertinoLocalizations
+            .delegate,
       ],
-      supportedLocales: S.delegate.supportedLocales,
+      supportedLocales:
+          S.delegate.supportedLocales,
       locale: Locale('ar'),
       // theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashView.routeName,
+      initialRoute:
+          SplashView.routeName,
     );
   }
 }
