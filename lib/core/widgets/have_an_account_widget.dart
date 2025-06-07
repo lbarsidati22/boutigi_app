@@ -1,12 +1,11 @@
 import 'package:boutigi_app/core/utils/app_colors.dart';
 import 'package:boutigi_app/core/utils/app_text_styles.dart';
-import 'package:boutigi_app/features/auth/presintasion/views/sign_up_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class DonHaveAnAccountWidget
+class HaveAnAccountWidget
     extends StatelessWidget {
-  const DonHaveAnAccountWidget({
+  const HaveAnAccountWidget({
     super.key,
   });
 
@@ -16,7 +15,7 @@ class DonHaveAnAccountWidget
       TextSpan(
         children: [
           TextSpan(
-            text: ' لا تمتلك حساب ؟',
+            text: 'تمتلك حساب بالفعل ؟',
             style: TextStyles.semiBold16
                 .copyWith(
                   color: Colors.grey,
@@ -33,13 +32,11 @@ class DonHaveAnAccountWidget
             recognizer:
                 TapGestureRecognizer()
                   ..onTap = () {
-                    Navigator.pushNamed(
+                    Navigator.pop(
                       context,
-                      SignUpView
-                          .routeName,
                     );
                   },
-            text: 'قم بأنشاء حساب',
+            text: 'تسجيل الدخول',
             style: TextStyles.semiBold16
                 .copyWith(
                   color: AppColors

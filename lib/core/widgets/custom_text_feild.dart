@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:boutigi_app/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
