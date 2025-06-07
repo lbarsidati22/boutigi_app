@@ -1,5 +1,6 @@
 import 'package:boutigi_app/core/routes/app_routes.dart';
 import 'package:boutigi_app/core/services/shared_pfer_singilton.dart';
+import 'package:boutigi_app/core/utils/app_colors.dart';
 import 'package:boutigi_app/features/splash/presintasion/views/splash_view.dart';
 import 'package:boutigi_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +20,18 @@ class BoutigiApp
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        fontFamily: 'Cairo',
+        colorScheme:
+            ColorScheme.fromSeed(
+              seedColor: AppColors
+                  .primaryColor,
+            ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white,
+        ),
+
         scaffoldBackgroundColor:
             Colors.white,
+        fontFamily: 'Cairo',
       ),
       localizationsDelegates: [
         S.delegate,
