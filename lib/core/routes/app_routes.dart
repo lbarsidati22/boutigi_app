@@ -1,5 +1,6 @@
 import 'package:boutigi_app/core/routes/base_routes.dart';
 import 'package:boutigi_app/features/auth/presintasion/views/login_view.dart';
+import 'package:boutigi_app/features/auth/presintasion/views/sign_up_view.dart';
 import 'package:boutigi_app/features/on_bording/presintasion/views/on_bording_view.dart';
 import 'package:boutigi_app/features/splash/presintasion/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,10 @@ Route<dynamic> onGenerateRoute(
       return BaseRoute(
         page: const LoginView(),
       );
-
+    case SignUpView.routeName:
+      return BaseRoute(
+        page: const SignUpView(),
+      );
     default:
       return BaseRoute(
         page: Scaffold(

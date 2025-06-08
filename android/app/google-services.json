@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "74808353748",
+    "project_id": "boutigi-app",
+    "storage_bucket": "boutigi-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74808353748:android:62eb49830fb10519eeac41",
+        "android_client_info": {
+          "package_name": "com.example.boutigi_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAcMEEB1_mM1crJpIs-UUyIHrQ313oFpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
