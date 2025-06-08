@@ -1,15 +1,13 @@
 import 'package:boutigi_app/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextFormField
-    extends StatelessWidget {
+class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
-    required this.controller,
+    this.controller,
     this.filled = true,
     this.obscureText = false,
     this.readOnly = false,
     super.key,
-    this.validator,
     this.suffixIcon,
     this.hintText,
     this.keyboardType,
@@ -18,14 +16,11 @@ class CustomTextFormField
     this.onChanged,
     this.maxLength,
     this.maxLines = 1,
+    this.onSaved,
   });
 
-  final String? Function(String?)?
-  validator;
-  final String? Function(String?)?
-  onChanged;
-  final TextEditingController
-  controller;
+  final String? Function(String?)? onChanged;
+  final TextEditingController? controller;
   final bool filled;
   final bool obscureText;
   final bool readOnly;
@@ -36,27 +31,31 @@ class CustomTextFormField
   final bool overrideValidator;
   final int? maxLength;
   final int? maxLines;
+  final Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-
+      onSaved: onSaved,
       //  cursorColor: context.color.textColor,
       validator: (value) {
-        return validator!(value);
+        if (value == null || value.isEmpty) {
+          return ('من فضلك ادخل البيانات');
+        }
+        return null;
       },
       onChanged: onChanged,
       keyboardType: keyboardType,
       obscureText: obscureText,
       maxLines: maxLines,
       readOnly: readOnly,
+
       decoration: InputDecoration(
-        contentPadding:
-            EdgeInsets.symmetric(
-              vertical: 18.0,
-              horizontal: 10.0,
-            ),
+        contentPadding: EdgeInsets.symmetric(
+          vertical: 18.0,
+          horizontal: 10.0,
+        ),
         border: buildBorder(),
         enabledBorder: buildBorder(),
         focusedBorder: buildBorder(),
@@ -66,23 +65,17 @@ class CustomTextFormField
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
         hintText: hintText,
-        hintStyle: TextStyles.bold13
-            .copyWith(
-              color:
-                  Colors.grey.shade600,
-            ),
+        hintStyle: TextStyles.bold13.copyWith(
+          color: Colors.grey.shade600,
+        ),
       ),
     );
   }
 
   OutlineInputBorder buildBorder() {
     return OutlineInputBorder(
-      borderRadius:
-          BorderRadius.circular(8),
-      borderSide: BorderSide(
-        color: Colors.grey.shade200,
-        width: 1,
-      ),
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(color: Colors.grey.shade200, width: 1),
     );
   }
 }

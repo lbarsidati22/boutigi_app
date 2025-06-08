@@ -10,27 +10,21 @@ import 'package:boutigi_app/core/widgets/or_devider.dart';
 import 'package:boutigi_app/features/auth/presintasion/views/widgets/social_login_boton.dart';
 import 'package:flutter/material.dart';
 
-class LoginViewBody
-    extends StatefulWidget {
+class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
 
   @override
-  State<LoginViewBody> createState() =>
-      _LoginViewBodyState();
+  State<LoginViewBody> createState() => _LoginViewBodyState();
 }
 
-class _LoginViewBodyState
-    extends State<LoginViewBody> {
-  final emailController =
-      TextEditingController();
-  final passwordController =
-      TextEditingController();
+class _LoginViewBodyState extends State<LoginViewBody> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  bool isPassword = true;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: kHorizentalPadding,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: kHorizentalPadding),
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -38,49 +32,46 @@ class _LoginViewBodyState
             CustomFadeInRight(
               duration: 400,
               child: CustomTextFormField(
-                keyboardType:
-                    TextInputType
-                        .emailAddress,
-                hintText:
-                    'البريد الالكتروني',
-                controller:
-                    emailController,
+                keyboardType: TextInputType.emailAddress,
+                hintText: 'البريد الالكتروني',
+                controller: emailController,
               ),
             ),
             SizedBox(height: 15),
             CustomFadeInRight(
               duration: 400,
               child: CustomTextFormField(
-                suffixIcon: Icon(
-                  Icons.visibility,
-                  color: Colors
-                      .grey
-                      .shade400,
+                obscureText: isPassword,
+
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isPassword = !isPassword;
+                    });
+                  },
+                  icon: Icon(
+                    isPassword
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                  ),
+                  color: Colors.grey.shade400,
                 ),
-                keyboardType:
-                    TextInputType
-                        .visiblePassword,
+                keyboardType: TextInputType.visiblePassword,
                 hintText: 'كلمة المرور',
-                controller:
-                    passwordController,
+                controller: passwordController,
               ),
             ),
             SizedBox(height: 15),
             CustomFadeInLeft(
               duration: 400,
               child: Row(
-                mainAxisAlignment:
-                    MainAxisAlignment
-                        .end,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
                     'نسيت كلمة المرور ؟',
-                    style: TextStyles
-                        .semiBold16
-                        .copyWith(
-                          color: AppColors
-                              .lightPrimaryColor,
-                        ),
+                    style: TextStyles.semiBold16.copyWith(
+                      color: AppColors.lightPrimaryColor,
+                    ),
                   ),
                 ],
               ),
@@ -88,41 +79,32 @@ class _LoginViewBodyState
             SizedBox(height: 32),
             CustomFadeInLeft(
               duration: 400,
-              child: MainBottom(
-                onTap: () {},
-                text: 'تسجيل الدخول',
-              ),
+              child: MainBottom(onTap: () {}, text: 'تسجيل الدخول'),
             ),
             SizedBox(height: 20),
             CustomFadeInRight(
               duration: 400,
-              child:
-                  DonHaveAnAccountWidget(),
+              child: DonHaveAnAccountWidget(),
             ),
             SizedBox(height: 20),
             OrDevider(),
             SizedBox(height: 20),
             SocialLoginBoton(
-              image: Assets
-                  .imagesGoogleIcon,
-              title:
-                  'تسجيل بواسطة جوجل',
+              image: Assets.imagesGoogleIcon,
+              title: 'تسجيل بواسطة جوجل',
               onTap: () {},
             ),
             SizedBox(height: 10),
 
             SocialLoginBoton(
-              image: Assets
-                  .imagesFacebookIcon,
-              title:
-                  'تسجيل بواسطة فايسبوك',
+              image: Assets.imagesFacebookIcon,
+              title: 'تسجيل بواسطة فايسبوك',
               onTap: () {},
             ),
             SizedBox(height: 10),
 
             SocialLoginBoton(
-              image:
-                  Assets.imagesApplIcon,
+              image: Assets.imagesApplIcon,
               title: 'تسجيل بواسطة ابل',
               onTap: () {},
             ),

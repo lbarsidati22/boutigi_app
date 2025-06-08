@@ -3,18 +3,15 @@ import 'package:boutigi_app/core/utils/app_text_styles.dart';
 import 'package:boutigi_app/core/widgets/custom_check_box.dart';
 import 'package:flutter/material.dart';
 
-class TermsAndCondetions
-    extends StatefulWidget {
-  const TermsAndCondetions({super.key});
-
+class TermsAndCondetions extends StatefulWidget {
+  const TermsAndCondetions({super.key, required this.onChanged});
+  final ValueChanged<bool> onChanged;
   @override
-  State<TermsAndCondetions>
-  createState() =>
+  State<TermsAndCondetions> createState() =>
       _TermsAndCondetionsState();
 }
 
-class _TermsAndCondetionsState
-    extends State<TermsAndCondetions> {
+class _TermsAndCondetionsState extends State<TermsAndCondetions> {
   bool isTarmsAccepted = false;
   @override
   Widget build(BuildContext context) {
@@ -23,6 +20,7 @@ class _TermsAndCondetionsState
         CustomCheckBox(
           onChaked: (value) {
             isTarmsAccepted = value;
+            widget.onChanged(value);
             setState(() {});
           },
           isChcked: isTarmsAccepted,
@@ -33,23 +31,16 @@ class _TermsAndCondetionsState
             TextSpan(
               children: [
                 TextSpan(
-                  text:
-                      'من خلال انشاء الحساب فانك توافق على ',
-                  style: TextStyles
-                      .semiBold13
-                      .copyWith(
-                        color:
-                            Colors.grey,
-                      ),
+                  text: 'من خلال انشاء الحساب فانك توافق على ',
+                  style: TextStyles.semiBold13.copyWith(
+                    color: Colors.grey,
+                  ),
                 ),
                 TextSpan(
                   text: ' ',
-                  style: TextStyles
-                      .semiBold13
-                      .copyWith(
-                        color:
-                            Colors.grey,
-                      ),
+                  style: TextStyles.semiBold13.copyWith(
+                    color: Colors.grey,
+                  ),
                 ),
                 TextSpan(
                   // recognizer:
@@ -61,14 +52,10 @@ class _TermsAndCondetionsState
                   //               .routeName,
                   //         );
                   //       },
-                  text:
-                      'الشروط والأحكام الخاصة بنا ',
-                  style: TextStyles
-                      .semiBold13
-                      .copyWith(
-                        color: AppColors
-                            .lightPrimaryColor,
-                      ),
+                  text: 'الشروط والأحكام الخاصة بنا ',
+                  style: TextStyles.semiBold13.copyWith(
+                    color: AppColors.lightPrimaryColor,
+                  ),
                 ),
               ],
             ),
