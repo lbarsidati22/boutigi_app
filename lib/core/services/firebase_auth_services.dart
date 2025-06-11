@@ -74,4 +74,8 @@ class FirebaseAuthServices {
       throw CustomExeption('هناك خطاء ما يرجى المحاولة لاحقا');
     }
   }
+
+  Future deleteUser() async {
+    await FirebaseAuth.instance.currentUser!.delete();
+  }
 }
