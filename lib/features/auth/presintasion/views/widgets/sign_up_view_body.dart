@@ -5,7 +5,7 @@ import 'package:boutigi_app/core/widgets/custom_text_feild.dart';
 import 'package:boutigi_app/core/widgets/have_an_account_widget.dart';
 import 'package:boutigi_app/core/widgets/main_bottom.dart';
 import 'package:boutigi_app/core/widgets/terms_and_condetions.dart';
-import 'package:boutigi_app/features/auth/presintasion/cubits/signup_cubit/cubit/signup_cubit.dart';
+import 'package:boutigi_app/features/auth/presintasion/cubits/signup_cubit/signup_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
