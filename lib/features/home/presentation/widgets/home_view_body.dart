@@ -1,6 +1,6 @@
 import 'package:boutigi_app/constants.dart';
 import 'package:boutigi_app/core/widgets/search_text_feild.dart';
-import 'package:boutigi_app/features/home/presentation/views/custom_home_app_bar.dart';
+import 'package:boutigi_app/features/home/presentation/widgets/custom_home_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
