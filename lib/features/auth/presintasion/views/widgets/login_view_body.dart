@@ -9,6 +9,7 @@ import 'package:boutigi_app/core/widgets/main_bottom.dart';
 import 'package:boutigi_app/core/widgets/or_devider.dart';
 import 'package:boutigi_app/features/auth/presintasion/cubits/login_cubit/login_cubit.dart';
 import 'package:boutigi_app/features/auth/presintasion/views/widgets/social_login_boton.dart';
+import 'package:boutigi_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
@@ -18,18 +19,23 @@ class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
 
   @override
-  State<LoginViewBody> createState() => _LoginViewBodyState();
+  State<LoginViewBody> createState() =>
+      _LoginViewBodyState();
 }
 
-class _LoginViewBodyState extends State<LoginViewBody> {
+class _LoginViewBodyState
+    extends State<LoginViewBody> {
   final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final passwordController =
+      TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool isPassword = true;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: kHorizentalPadding),
+      padding: EdgeInsets.symmetric(
+        horizontal: kHorizentalPadding,
+      ),
       child: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -39,7 +45,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               CustomFadeInRight(
                 duration: 400,
                 child: CustomTextFormField(
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType:
+                      TextInputType.emailAddress,
                   hintText: 'البريد الالكتروني',
                   controller: emailController,
                 ),
@@ -63,7 +70,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     ),
                     color: Colors.grey.shade400,
                   ),
-                  keyboardType: TextInputType.visiblePassword,
+                  keyboardType: TextInputType
+                      .visiblePassword,
                   hintText: 'كلمة المرور',
                   controller: passwordController,
                 ),
@@ -72,32 +80,47 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               CustomFadeInLeft(
                 duration: 400,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment:
+                      MainAxisAlignment.end,
                   children: [
                     Text(
                       'نسيت كلمة المرور ؟',
-                      style: TextStyles.semiBold16.copyWith(
-                        color: AppColors.lightPrimaryColor,
-                      ),
+                      style: TextStyles.semiBold16
+                          .copyWith(
+                            color: AppColors
+                                .lightPrimaryColor,
+                          ),
                     ),
                   ],
                 ),
               ),
               SizedBox(height: 32),
-              BlocConsumer<LoginCubit, LoginState>(
+              BlocConsumer<
+                LoginCubit,
+                LoginState
+              >(
                 listener: (context, state) {
                   if (state is LoginSuccess) {
+                    Navigator.pushReplacementNamed(
+                      context,
+                      HomeView.routeName,
+                    );
                     return showTopSnackBar(
                       Overlay.of(context),
                       CustomSnackBar.success(
-                        backgroundColor: AppColors.primaryColor,
-                        message: 'تم تسجيل الدخول بنجاح',
+                        backgroundColor: AppColors
+                            .primaryColor,
+                        message:
+                            'تم تسجيل الدخول بنجاح',
                       ),
                     );
-                  } else if (state is LoginFaulier) {
+                  } else if (state
+                      is LoginFaulier) {
                     return showTopSnackBar(
                       Overlay.of(context),
-                      CustomSnackBar.error(message: state.message),
+                      CustomSnackBar.error(
+                        message: state.message,
+                      ),
                     );
                   }
                 },
@@ -116,12 +139,15 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     duration: 400,
                     child: MainBottom(
                       onTap: () async {
-                        if (_formKey.currentState!.validate()) {
+                        if (_formKey.currentState!
+                            .validate()) {
                           await context
                               .read<LoginCubit>()
                               .loginWithEmailAndPassword(
-                                emailController.text,
-                                passwordController.text,
+                                emailController
+                                    .text,
+                                passwordController
+                                    .text,
                               );
                         }
                       },

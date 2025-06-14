@@ -15,20 +15,26 @@ class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
 
   @override
-  State<SignUpViewBody> createState() => _SignUpViewBodyState();
+  State<SignUpViewBody> createState() =>
+      _SignUpViewBodyState();
 }
 
-class _SignUpViewBodyState extends State<SignUpViewBody> {
+class _SignUpViewBodyState
+    extends State<SignUpViewBody> {
   final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final userNameController = TextEditingController();
+  final passwordController =
+      TextEditingController();
+  final userNameController =
+      TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool isPassword = true;
   late bool isTermsAccepted = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: kHorizentalPadding),
+      padding: EdgeInsets.symmetric(
+        horizontal: kHorizentalPadding,
+      ),
       child: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -38,7 +44,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               CustomFadeInRight(
                 duration: 400,
                 child: CustomTextFormField(
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType:
+                      TextInputType.emailAddress,
                   hintText: 'الاسم الكامل',
                   controller: userNameController,
                 ),
@@ -47,7 +54,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               CustomFadeInRight(
                 duration: 400,
                 child: CustomTextFormField(
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType:
+                      TextInputType.emailAddress,
                   hintText: 'البريد الالكتروني',
                   controller: emailController,
                 ),
@@ -70,7 +78,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     ),
                     color: Colors.grey.shade400,
                   ),
-                  keyboardType: TextInputType.visiblePassword,
+                  keyboardType: TextInputType
+                      .visiblePassword,
                   hintText: 'كلمة المرور',
                   controller: passwordController,
                 ),
@@ -85,21 +94,29 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 ),
               ),
               SizedBox(height: 32),
-              BlocConsumer<SignupCubit, SignupState>(
+              BlocConsumer<
+                SignupCubit,
+                SignupState
+              >(
                 listener: (context, state) {
                   if (state is SignupSuccess) {
                     showTopSnackBar(
                       Overlay.of(context),
                       CustomSnackBar.success(
-                        backgroundColor: AppColors.primaryColor,
-                        message: 'تم التسجيل بنجاح',
+                        backgroundColor: AppColors
+                            .primaryColor,
+                        message:
+                            'تم التسجيل بنجاح',
                       ),
                     );
-                  } else if (state is SignupFaulier) {
+                    Navigator.pop(context);
+                  } else if (state
+                      is SignupFaulier) {
                     showTopSnackBar(
                       Overlay.of(context),
                       CustomSnackBar.error(
-                        backgroundColor: Colors.red,
+                        backgroundColor:
+                            Colors.red,
                         message: state.message,
                       ),
                     );
@@ -124,20 +141,27 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     duration: 400,
                     child: MainBottom(
                       onTap: () {
-                        if (_formKey.currentState!.validate()) {
+                        if (_formKey.currentState!
+                            .validate()) {
                           if (isTermsAccepted) {
                             context
-                                .read<SignupCubit>()
+                                .read<
+                                  SignupCubit
+                                >()
                                 .createAccountWithAndPassword(
-                                  emailController.text,
-                                  passwordController.text,
-                                  userNameController.text,
+                                  emailController
+                                      .text,
+                                  passwordController
+                                      .text,
+                                  userNameController
+                                      .text,
                                 );
                           } else {
                             showTopSnackBar(
                               Overlay.of(context),
                               CustomSnackBar.error(
-                                backgroundColor: Colors.red,
+                                backgroundColor:
+                                    Colors.red,
                                 message:
                                     'يجب الموافقة على الشروط والاحكام',
                               ),
