@@ -2,7 +2,7 @@ name: boutigi_app
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
@@ -54,17 +54,18 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # the material Icons class.
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/vuesax/bold/
+    - assets/images/vuesax/outline/
 
   # example:
   fonts:
-    - family: 'Cairo'
+    - family: "Cairo"
       fonts:
         - asset: assets/fonts/Cairo-Regular.ttf
         - asset: assets/fonts/Cairo-Medium.ttf
@@ -79,7 +80,7 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/images/app_icon.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
-  
+
 flutter_assets:
   assets_path: assets/images/
   output_path: lib/core/utils
