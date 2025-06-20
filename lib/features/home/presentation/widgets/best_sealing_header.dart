@@ -1,5 +1,6 @@
 import 'package:boutigi_app/core/utils/app_colors.dart';
 import 'package:boutigi_app/core/utils/app_text_styles.dart';
+import 'package:boutigi_app/features/best_selling_fruits/presentation/views/best_selling_view.dart';
 import 'package:flutter/material.dart';
 
 class BestSealingHeader extends StatelessWidget {
@@ -14,10 +15,18 @@ class BestSealingHeader extends StatelessWidget {
           style: TextStyles.bold16,
         ),
         Spacer(),
-        Text(
-          'المزيد',
-          style: TextStyles.regular16.copyWith(
-            color: AppColors.primaryColor,
+        TextButton(
+          onPressed: () {
+            Navigator.pushNamed(
+              context,
+              BestSellingView.routeName,
+            );
+          },
+          child: Text(
+            'المزيد',
+            style: TextStyles.regular16.copyWith(
+              color: AppColors.primaryColor,
+            ),
           ),
         ),
       ],

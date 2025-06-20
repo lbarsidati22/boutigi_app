@@ -7,13 +7,11 @@ import 'package:boutigi_app/features/on_bording/presintasion/views/widgets/on_bo
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
-class OnBordingnViewBody
-    extends StatefulWidget {
+class OnBordingnViewBody extends StatefulWidget {
   const OnBordingnViewBody({super.key});
 
   @override
-  State<OnBordingnViewBody>
-  createState() =>
+  State<OnBordingnViewBody> createState() =>
       _OnBordingnViewBodyState();
 }
 
@@ -25,9 +23,7 @@ class _OnBordingnViewBodyState
   void initState() {
     pageController = PageController();
     pageController.addListener(() {
-      curreentPage = pageController
-          .page!
-          .round();
+      curreentPage = pageController.page!.round();
       setState(() {});
     });
     super.initState();
@@ -44,17 +40,14 @@ class _OnBordingnViewBodyState
     return Column(
       children: [
         Expanded(
-          child:
-              OnBordingPageViewWidget(
-                pageController:
-                    pageController,
-              ),
+          child: OnBordingPageViewWidget(
+            pageController: pageController,
+          ),
         ),
         DotsIndicator(
           dotsCount: 2,
           decorator: DotsDecorator(
-            activeColor:
-                AppColors.primaryColor,
+            activeColor: AppColors.primaryColor,
             color: curreentPage == 1
                 ? AppColors.primaryColor
                 : AppColors.primaryColor
@@ -70,14 +63,12 @@ class _OnBordingnViewBodyState
           maintainSize: true,
           maintainState: true,
           child: Padding(
-            padding:
-                EdgeInsets.symmetric(
-                  horizontal:
-                      kHorizentalPadding,
-                ),
+            padding: EdgeInsets.symmetric(
+              horizontal: kHorizentalPadding,
+            ),
             child: MainBottom(
               onTap: () {
-                SharedPferSingilton.setBool(
+                Prefs.setBool(
                   isOnBordingSeen,
                   true,
                 );

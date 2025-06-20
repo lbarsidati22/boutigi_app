@@ -32,11 +32,11 @@ class HomeViewBody extends StatelessWidget {
                 ),
                 FeaturedList(),
                 SizedBox(
-                  height: size.height * 0.012,
+                  height: size.height * 0.005,
                 ),
                 BestSealingHeader(),
                 SizedBox(
-                  height: size.height * 0.012,
+                  height: size.height * 0.005,
                 ),
               ],
             ),

@@ -6,8 +6,7 @@ import 'package:boutigi_app/features/auth/presintasion/views/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
 
-class PageViewItem
-    extends StatelessWidget {
+class PageViewItem extends StatelessWidget {
   const PageViewItem({
     super.key,
     required this.image,
@@ -28,9 +27,7 @@ class PageViewItem
         SizedBox(
           width: double.infinity,
           height:
-              MediaQuery.sizeOf(
-                context,
-              ).height *
+              MediaQuery.sizeOf(context).height *
               0.5,
           child: Stack(
             children: [
@@ -47,35 +44,27 @@ class PageViewItem
                 bottom: 0,
                 child: CustomFadeInDown(
                   duration: 400,
-                  child:
-                      SvgPicture.asset(
-                        image,
-                      ),
+                  child: SvgPicture.asset(image),
                 ),
               ),
               Visibility(
                 visible: isVasibel,
                 child: GestureDetector(
                   onTap: () {
-                    SharedPferSingilton.setBool(
+                    Prefs.setBool(
                       isOnBordingSeen,
                       true,
                     );
                     Navigator.pushReplacementNamed(
                       context,
-                      LoginView
-                          .routeName,
+                      LoginView.routeName,
                     );
                   },
                   child: Padding(
-                    padding:
-                        EdgeInsets.all(
-                          16,
-                        ),
+                    padding: EdgeInsets.all(16),
                     child: Text(
                       'تخط',
-                      style: TextStyles
-                          .regular13,
+                      style: TextStyles.regular13,
                     ),
                   ),
                 ),
@@ -85,9 +74,7 @@ class PageViewItem
         ),
         SizedBox(
           height:
-              MediaQuery.sizeOf(
-                context,
-              ).height *
+              MediaQuery.sizeOf(context).height *
               0.030,
         ),
         CustomFadeInLeft(
@@ -103,14 +90,10 @@ class PageViewItem
             duration: 400,
             child: Text(
               subtitle,
-              textAlign:
-                  TextAlign.center,
-              style: TextStyles
-                  .semiBold13
+              textAlign: TextAlign.center,
+              style: TextStyles.semiBold13
                   .copyWith(
-                    color: Colors
-                        .grey
-                        .shade800,
+                    color: Colors.grey.shade800,
                   ),
             ),
           ),

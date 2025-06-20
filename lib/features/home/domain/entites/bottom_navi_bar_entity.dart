@@ -1,12 +1,12 @@
-import 'package:boutigi_app/core/utils/app_images.dart';
+import 'package:flutter/material.dart';
 
 class BottomNaviBarEntity {
-  final String activeImage, inActiveImage;
+  final IconData activeIcon, inActiveIcon;
   final String title;
 
   BottomNaviBarEntity({
-    required this.activeImage,
-    required this.inActiveImage,
+    required this.activeIcon,
+    required this.inActiveIcon,
     required this.title,
   });
 }
@@ -14,27 +14,24 @@ class BottomNaviBarEntity {
 List<BottomNaviBarEntity>
 get bottomNaviBarItems => [
   BottomNaviBarEntity(
-    activeImage: Assets.imagesVuesaxBoldHome,
-    inActiveImage: Assets.imagesVuesaxOutlineHome,
+    activeIcon: Icons.home,
+    inActiveIcon: Icons.home_outlined,
     title: 'الرئيسية',
   ),
   BottomNaviBarEntity(
-    activeImage: Assets.imagesVuesaxBoldProducts,
-    inActiveImage:
-        Assets.imagesVuesaxOutlineProducts,
+    activeIcon: Icons.category,
+    inActiveIcon: Icons.category_outlined,
     title: 'المنتجات',
   ),
 
   BottomNaviBarEntity(
-    activeImage:
-        Assets.imagesVuesaxBoldShoppingCart,
-    inActiveImage:
-        Assets.imagesVuesaxOutlineShoppingCart,
+    activeIcon: Icons.shopping_cart,
+    inActiveIcon: Icons.shopping_cart_outlined,
     title: 'سلة التسوق',
   ),
   BottomNaviBarEntity(
-    activeImage: Assets.imagesVuesaxBoldUser,
-    inActiveImage: Assets.imagesVuesaxOutlineUser,
+    activeIcon: Icons.person,
+    inActiveIcon: Icons.person_outlined,
     title: 'حسابي',
   ),
 ];
