@@ -3,7 +3,7 @@ import 'package:boutigi_app/core/services/custom_bloc_observer.dart';
 import 'package:boutigi_app/core/services/get_it_services.dart';
 import 'package:boutigi_app/core/services/shared_pfer_singilton.dart';
 import 'package:boutigi_app/core/utils/app_colors.dart';
-import 'package:boutigi_app/features/home/presentation/views/home_view.dart';
+import 'package:boutigi_app/features/splash/presintasion/views/splash_view.dart';
 import 'package:boutigi_app/firebase_options.dart';
 import 'package:boutigi_app/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -17,7 +17,7 @@ void main() async {
     options:
         DefaultFirebaseOptions.currentPlatform,
   );
-  await SharedPferSingilton.init();
+  await Prefs.init();
   Bloc.observer = CustomBlocObserver();
   setupGetIt();
   runApp(const BoutigiApp());
@@ -52,7 +52,7 @@ class BoutigiApp extends StatelessWidget {
       // theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: HomeView.routeName,
+      initialRoute: SplashView.routeName,
     );
   }
 }

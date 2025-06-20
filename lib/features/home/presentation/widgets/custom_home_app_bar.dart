@@ -1,7 +1,8 @@
+import 'package:boutigi_app/core/helper_functions/get_user.dart';
 import 'package:boutigi_app/core/utils/app_images.dart';
 import 'package:boutigi_app/core/utils/app_text_styles.dart';
+import 'package:boutigi_app/core/widgets/notification_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:svg_flutter/svg_flutter.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
   const CustomHomeAppBar({super.key});
@@ -14,17 +15,7 @@ class CustomHomeAppBar extends StatelessWidget {
           Assets.imagesProfileImage,
         ),
       ),
-      trailing: Container(
-        width: 32,
-        height: 32,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.white,
-        ),
-        child: SvgPicture.asset(
-          Assets.imagesNotification,
-        ),
-      ),
+      trailing: NotificationWidget(),
       title: Text(
         'صباح الخير ...!',
         style: TextStyles.regular16.copyWith(
@@ -32,7 +23,7 @@ class CustomHomeAppBar extends StatelessWidget {
         ),
       ),
       subtitle: Text(
-        'محمد علي',
+        getUser().name,
         style: TextStyles.bold16.copyWith(
           color: Colors.black,
         ),
