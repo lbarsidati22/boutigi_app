@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'boutigi-app.firebasestorage.app',
     measurementId: 'G-EBKFSJGFRB',
   );
+
 }
