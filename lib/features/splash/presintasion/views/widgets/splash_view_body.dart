@@ -3,7 +3,7 @@ import 'package:boutigi_app/core/services/firebase_auth_services.dart';
 import 'package:boutigi_app/core/services/shared_pfer_singilton.dart';
 import 'package:boutigi_app/core/utils/app_images.dart';
 import 'package:boutigi_app/features/auth/presintasion/views/login_view.dart';
-import 'package:boutigi_app/features/home/presentation/views/home_view.dart';
+import 'package:boutigi_app/features/home/presentation/tabs/home_view.dart';
 import 'package:boutigi_app/features/on_bording/presintasion/views/on_bording_view.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';

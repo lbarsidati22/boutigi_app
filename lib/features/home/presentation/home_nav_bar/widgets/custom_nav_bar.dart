@@ -1,5 +1,5 @@
 import 'package:boutigi_app/features/home/domain/entites/bottom_navi_bar_entity.dart';
-import 'package:boutigi_app/features/home/presentation/widgets/navogation_bar_item.dart';
+import 'package:boutigi_app/features/home/presentation/home_nav_bar/widgets/navogation_bar_item.dart';
 import 'package:flutter/material.dart';
 
 class CustomNavBar extends StatefulWidget {

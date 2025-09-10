@@ -1,9 +1,9 @@
 import 'package:boutigi_app/constants.dart';
 import 'package:boutigi_app/core/widgets/search_text_feild.dart';
-import 'package:boutigi_app/features/home/presentation/widgets/best_sealing_header.dart';
-import 'package:boutigi_app/features/home/presentation/widgets/best_selling_grid.dart';
-import 'package:boutigi_app/features/home/presentation/widgets/custom_home_app_bar.dart';
-import 'package:boutigi_app/features/home/presentation/widgets/featured_list.dart';
+import 'package:boutigi_app/features/home/presentation/home_nav_bar/widgets/best_sealing_header.dart';
+import 'package:boutigi_app/features/home/presentation/home_nav_bar/widgets/best_selling_grid.dart';
+import 'package:boutigi_app/features/home/presentation/home_nav_bar/widgets/custom_home_app_bar.dart';
+import 'package:boutigi_app/features/home/presentation/home_nav_bar/widgets/featured_list.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
