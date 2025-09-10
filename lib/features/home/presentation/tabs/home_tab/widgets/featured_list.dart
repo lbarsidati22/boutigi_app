@@ -1,4 +1,4 @@
-import 'package:boutigi_app/features/home/presentation/home_nav_bar/widgets/featured_item.dart';
+import 'package:boutigi_app/features/home/presentation/tabs/home_tab/widgets/featured_item.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedList extends StatelessWidget {

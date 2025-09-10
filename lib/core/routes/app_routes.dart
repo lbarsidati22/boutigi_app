@@ -2,7 +2,7 @@ import 'package:boutigi_app/core/routes/base_routes.dart';
 import 'package:boutigi_app/features/auth/presintasion/views/login_view.dart';
 import 'package:boutigi_app/features/auth/presintasion/views/sign_up_view.dart';
 import 'package:boutigi_app/features/best_selling_fruits/presentation/views/best_selling_view.dart';
-import 'package:boutigi_app/features/home/presentation/tabs/home_view.dart';
+import 'package:boutigi_app/features/home/presentation/home_nav_bar/views/home_nav_bar.dart';
 import 'package:boutigi_app/features/on_bording/presintasion/views/on_bording_view.dart';
 import 'package:boutigi_app/features/splash/presintasion/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +22,8 @@ Route<dynamic> onGenerateRoute(
       return BaseRoute(page: const LoginView());
     case SignUpView.routeName:
       return BaseRoute(page: const SignUpView());
-    case HomeView.routeName:
-      return BaseRoute(page: const HomeView());
+    case HomeNavBar.routeName:
+      return BaseRoute(page: const HomeNavBar());
     case BestSellingView.routeName:
       return BaseRoute(
         page: const BestSellingView(),

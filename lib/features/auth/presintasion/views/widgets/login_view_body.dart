@@ -9,7 +9,7 @@ import 'package:boutigi_app/core/widgets/main_bottom.dart';
 import 'package:boutigi_app/core/widgets/or_devider.dart';
 import 'package:boutigi_app/features/auth/presintasion/cubits/login_cubit/login_cubit.dart';
 import 'package:boutigi_app/features/auth/presintasion/views/widgets/social_login_boton.dart';
-import 'package:boutigi_app/features/home/presentation/tabs/home_view.dart';
+import 'package:boutigi_app/features/home/presentation/home_nav_bar/views/home_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
@@ -103,7 +103,7 @@ class _LoginViewBodyState
                   if (state is LoginSuccess) {
                     Navigator.pushReplacementNamed(
                       context,
-                      HomeView.routeName,
+                      HomeNavBar.routeName,
                     );
                     return showTopSnackBar(
                       Overlay.of(context),

@@ -1,6 +1,6 @@
 import 'package:boutigi_app/core/utils/app_images.dart';
 import 'package:boutigi_app/core/utils/app_text_styles.dart';
-import 'package:boutigi_app/features/home/presentation/home_nav_bar/widgets/featured_item_button.dart';
+import 'package:boutigi_app/features/home/presentation/tabs/home_tab/widgets/featured_item_button.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart'

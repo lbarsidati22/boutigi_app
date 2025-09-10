@@ -3,7 +3,7 @@ import 'package:boutigi_app/core/services/firebase_auth_services.dart';
 import 'package:boutigi_app/core/services/shared_pfer_singilton.dart';
 import 'package:boutigi_app/core/utils/app_images.dart';
 import 'package:boutigi_app/features/auth/presintasion/views/login_view.dart';
-import 'package:boutigi_app/features/home/presentation/tabs/home_view.dart';
+import 'package:boutigi_app/features/home/presentation/home_nav_bar/views/home_nav_bar.dart';
 import 'package:boutigi_app/features/on_bording/presintasion/views/on_bording_view.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
@@ -61,7 +61,7 @@ class _SplashViewBodyState
           Navigator.pushReplacementNamed(
             // ignore: use_build_context_synchronously
             context,
-            HomeView.routeName,
+            HomeNavBar.routeName,
           );
         } else {
           Navigator.pushReplacementNamed(
