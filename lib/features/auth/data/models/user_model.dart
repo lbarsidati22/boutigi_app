@@ -1,5 +1,5 @@
 import 'package:boutigi_app/features/auth/domain/entites/user_entity.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class UserModel extends UserEntity {
   UserModel({
@@ -8,13 +8,11 @@ class UserModel extends UserEntity {
     required super.uId,
   });
 
-  factory UserModel.fromFirebaseUser(
-    User user,
-  ) {
+  factory UserModel.fromSupabaseUser(User user) {
     return UserModel(
-      name: user.displayName ?? '',
+      name: user.userMetadata?['name'] ?? '',
       email: user.email ?? '',
-      uId: user.uid,
+      uId: user.id,
     );
   }
 
@@ -22,15 +20,16 @@ class UserModel extends UserEntity {
     Map<String, dynamic> json,
   ) {
     return UserModel(
-      name: json['name'],
-      email: json['email'],
-      uId: json['uId'],
+      name: json['name'] ?? '',
+      email: json['email'] ?? '',
+      uId:
+          json['id'] ??
+          json['uId'] ??
+          '', // دعم كلا من id و uId
     );
   }
 
-  factory UserModel.fromEntity(
-    UserEntity user,
-  ) {
+  factory UserModel.fromEntity(UserEntity user) {
     return UserModel(
       name: user.name,
       email: user.email,
@@ -40,9 +39,10 @@ class UserModel extends UserEntity {
 
   toMap() {
     return {
+      'id':
+          uId, // استخدام id بدلاً من uId لتتطابق مع الجدول
       'name': name,
       'email': email,
-      'uId': uId,
     };
   }
 }

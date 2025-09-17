@@ -4,18 +4,19 @@ import 'package:boutigi_app/core/services/get_it_services.dart';
 import 'package:boutigi_app/core/services/shared_pfer_singilton.dart';
 import 'package:boutigi_app/core/utils/app_colors.dart';
 import 'package:boutigi_app/features/splash/presintasion/views/splash_view.dart';
-import 'package:boutigi_app/firebase_options.dart';
 import 'package:boutigi_app/generated/l10n.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options:
-        DefaultFirebaseOptions.currentPlatform,
+  await Supabase.initialize(
+    url:
+        "https://rtrbztcwxqdmfdgddghs.supabase.co",
+    anonKey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0cmJ6dGN3eHFkbWZkZ2RkZ2hzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc5Nzc5NTAsImV4cCI6MjA3MzU1Mzk1MH0.rMPfcj5cA7g3VyCPqaM8-gk-fjkpBzSlJR7OB7FQS2g",
   );
   await Prefs.init();
   Bloc.observer = CustomBlocObserver();
